@@ -7,7 +7,8 @@ class AboutFrame(Frame): # 继承Frame类
         self.createPage() 
         
     def createPage(self): 
-        Label(self, text='关于界面').pack() 
+        Label(self, text='赛博修仙').pack() 
+        Label(self, text='作者：Yang Quan').pack() 
 
 if __name__ == "__main__":
     app = Tk()

@@ -1,5 +1,5 @@
 from tkinter import *
-from views import LoginPage
+from views import MainPage
 
 class MyApp(Tk):
     def __init__(self):
@@ -11,5 +11,5 @@ class MyApp(Tk):
 
 if __name__ == "__main__":
     app = MyApp()
-    LoginPage(app) 
+    MainPage(app) 
     app.mainloop()
