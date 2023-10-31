@@ -63,10 +63,17 @@ class InputFrame(Frame): # 继承Frame类
                 text.insert(INSERT, "\n")
                 text.insert(INSERT, "你的日柱天干“%s”和年干“%s”呈“%s”关系"%(self.__tianganshishen__(self.ganzhi_brith_day[0:1],self.ganzhi_now_year[0:1])))
                 text.insert(INSERT, "\n")
+                text.insert(INSERT, "你的日柱天干“%s”和年支“%s”呈“%s”关系"%(self.__dizhishishen__(self.ganzhi_brith_day[0:1],self.ganzhi_now_year[1:2])))
+                text.insert(INSERT, "\n")
                 text.insert(INSERT, "你的日柱天干“%s”和月干“%s”呈“%s”关系"%(self.__tianganshishen__(self.ganzhi_brith_day[0:1],self.ganzhi_now_month[0:1])))
                 text.insert(INSERT, "\n")
+                text.insert(INSERT, "你的日柱天干“%s”和月支“%s”呈“%s”关系"%(self.__dizhishishen__(self.ganzhi_brith_day[0:1],self.ganzhi_now_month[1:2])))
+                text.insert(INSERT, "\n")
                 text.insert(INSERT, "你的日柱天干“%s”和日干“%s”呈“%s”关系"%(self.__tianganshishen__(self.ganzhi_brith_day[0:1],self.ganzhi_now_day[0:1])))
-    def __tianganshishen__(self,tiangan1,tiangan2):
+                text.insert(INSERT, "\n")
+                text.insert(INSERT, "你的日柱天干“%s”和日支“%s”呈“%s”关系"%(self.__dizhishishen__(self.ganzhi_brith_day[0:1],self.ganzhi_now_day[1:2])))
+
+    def __tianganshishen__(self,rizhu,tiangan):
         # 天干和十神关系
         tian_gan = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"]
         ten_god_relations = {
@@ -81,8 +88,27 @@ class InputFrame(Frame): # 继承Frame类
             "壬": ["偏印", "正印", "七杀", "正官", "偏财", "正财", "食神", "伤官", "比肩", "劫财"],
             "癸": ["正印", "偏印", "正官", "七杀", "正财", "偏财", "伤官", "食神", "劫财", "比肩"]
         }
-        relation = ten_god_relations[tiangan1][tian_gan.index(tiangan2)]
-        return tiangan1,tiangan2,relation
+        relation = ten_god_relations[tiangan][tian_gan.index(rizhu)]
+        return rizhu,tiangan,relation
+    def __dizhishishen__(self,rizhu,dizhi):
+        # 天干和十神关系
+        tian_gan = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"]
+        ten_god_relations = {
+            "子": ["偏印", "正印", "七杀", "正官", "偏财", "正财", "食神", "伤官", "比肩", "劫财"],
+            "丑": ["正财", "偏财", "伤官", "食神", "劫财", "比肩", "正印", "偏印", "正官", "七杀"],
+            "寅": ["比肩", "劫财", "偏印", "正印", "正官", "七杀", "正财", "偏财", "食神", "伤官"],
+            "卯": ["劫财", "比肩", "正印", "偏印", "正财", "偏财", "伤官", "食神", "劫财", "比肩"],
+            "辰": ["正财", "偏财", "食神", "伤官", "比肩", "劫财", "偏印", "正印", "正官", "七杀"],
+            "巳": ["伤官", "食神", "劫财", "比肩", "正印", "偏印", "正财", "偏财", "正官", "七杀"],
+            "午": ["食神", "伤官", "比肩", "劫财", "偏印", "正印", "正官", "七杀", "偏财", "正财"],
+            "未": ["正官", "七杀", "正财", "偏财", "伤官", "食神", "劫财", "比肩", "偏印", "正印"],
+            "申": ["偏印", "正印", "七杀", "正官", "偏财", "正财", "食神", "伤官", "比肩", "劫财"],
+            "酉": ["正印", "偏印", "正官", "七杀", "正财", "偏财", "伤官", "食神", "劫财", "比肩"],
+            "戌": ["正财", "偏财", "食神", "伤官", "比肩", "劫财", "偏印", "正印", "正官", "七杀"],
+            "亥": ["偏印", "正印", "正官", "七杀", "正财", "偏财", "食神", "伤官", "劫财", "比肩"]
+        }
+        relation = ten_god_relations[dizhi][tian_gan.index(rizhu)]
+        return rizhu,dizhi,relation
 
 
 if __name__ == "__main__":
