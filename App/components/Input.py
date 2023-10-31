@@ -26,6 +26,24 @@ class InputFrame(Frame): # 继承Frame类
         self.day_entry=Entry(self, textvariable=self.deductPrice)
         self.day_entry.grid(row=2, column=5, stick=W, pady=10)
         Button(self, text='计算', command=self.compute).grid(row=3, column=3, pady=10)
+        Label(self, text = '关系').grid(row=4,column=1) 
+        Label(self, text = '同性').grid(row=4,column=3) 
+        Label(self, text = '异性').grid(row=4,column=5) 
+        Label(self, text = '同我').grid(row=5,column=1) 
+        Label(self, text = '比肩').grid(row=5,column=3) 
+        Label(self, text = '劫财').grid(row=5,column=5) 
+        Label(self, text = '我生').grid(row=6,column=1) 
+        Label(self, text = '食神').grid(row=6,column=3) 
+        Label(self, text = '伤官').grid(row=6,column=5) 
+        Label(self, text = '我克').grid(row=7,column=1) 
+        Label(self, text = '偏财').grid(row=7,column=3) 
+        Label(self, text = '正财').grid(row=7,column=5) 
+        Label(self, text = '克我').grid(row=8,column=1) 
+        Label(self, text = '七杀').grid(row=8,column=3) 
+        Label(self, text = '正官').grid(row=8,column=5) 
+        Label(self, text = '生我').grid(row=9,column=1) 
+        Label(self, text = '偏印').grid(row=9,column=3) 
+        Label(self, text = '正印').grid(row=9,column=5) 
 
     def compute(self):
         def has_non_digit_characters(input_string):
@@ -56,7 +74,7 @@ class InputFrame(Frame): # 继承Frame类
                 self.ganzhi_now_month=self.ganzhi_now[3:5]
                 self.ganzhi_now_day=self.ganzhi_now[6:8]
                 text=Text(self, width=50, height=10)
-                text.grid(row=4, column=1,columnspan=6, stick=W, pady=15)
+                text.grid(row=10, column=1,columnspan=6, stick=W, pady=15)
                 text.insert(INSERT, "出生于%s"%(self.ganzhi_brith))
                 text.insert(INSERT, "\n")
                 text.insert(INSERT, "今天是%s"%(self.ganzhi_now))
