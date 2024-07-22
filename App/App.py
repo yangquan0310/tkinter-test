@@ -7,9 +7,11 @@ class MyApp(Tk):
         self.title("My App")
         self.geometry("500x500")
         self.resizable(False, False)
+    def run(self):
+        MainPage(app)
+        app.mainloop()
 
 
 if __name__ == "__main__":
     app = MyApp()
-    MainPage(app) 
-    app.mainloop()
+    app.run()
